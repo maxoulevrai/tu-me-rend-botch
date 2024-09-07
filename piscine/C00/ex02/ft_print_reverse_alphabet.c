@@ -16,10 +16,10 @@ void	ft_print_reverse_alphabet(void)
 		c--;
 	}
 }
-
-int main ()
+/*
+int	main(void)
 {
 	ft_print_reverse_alphabet();
-
 	return (0);
 }
+*/
