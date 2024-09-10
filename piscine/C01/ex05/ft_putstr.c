@@ -2,19 +2,20 @@
 
 void	ft_putstr(char *str)
 {
-	int	x;
+	int	i;
 
-	x = -1;
-	while(str[++x])
+	i = 0;
+	while (str[i] != '\0')
 	{
-		write(1, &str[x], 1);
+		write(1, &str[i], 1);
+		i++;
 	}
 }
 
 int	main(void)
 {
-	char oe[] = "salut\n";
+	char	str[] = "salam";
 
-	ft_putstr(oe);
-	return(0);
+	ft_putstr(str);
+	return (0);
 }
