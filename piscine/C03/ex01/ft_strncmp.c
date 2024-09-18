@@ -5,21 +5,21 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 	unsigned int	i;
 
 	i = 0;
-	while (i < n && s1[i] == s2[i] 
-			&& s1[i] != '\0'
-			&& s2[i] != '\0')
+	while (s1[i] != '\0' && s2[i] != '\0' && i < n )
+	{
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
 		i++;
-	if (i == n)
-		return (0);
-	return (s1[i] - s2[i]);
+	}
+	return (0);
 }
 
 int	main(void)
 {
 	char	st1[] = "ABCS";
-	char	st2[] = "DSFG";
+	char	st2[] = "ABCDSFG";
 
-	printf("cmp: %d\n", ft_strncmp(st1, st2, 46));
+	printf("cmp: %d\n", ft_strncmp(st1, st2, 1));
 	return (0);
 
 }
