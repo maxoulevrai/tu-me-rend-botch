@@ -27,5 +27,5 @@ int	main(void)
 	char	s2[] = "le";
 
 	printf("%s\n", ft_strstr(s1, s2));
-	return(0);
+	return (0);
 }
