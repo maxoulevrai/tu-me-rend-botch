@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include <stdio.h>
 
 int	ft_strlen(char *str)
 {
@@ -18,56 +17,67 @@ char	*ft_strcat(char *s1, char *s2)
 
 	i = 0;
 	j = 0;
-	while(s1[i] != '\0')
+	while (s1[i] != '\0')
 		i++;
 	while (s2[j] != '\0')
 	{
 		s1[i] = s2[j];
 		i++;
 		j++;
+	}// ajout de '\0' a la fin
+	return (s1);
+}
+int	get_total_len(int size, char **strs, char *sep)
+{
+	int	total_len;
+	int	i;
+
+	i = 0;
+	while (i < size) // Ajout de verif strs[i] n'est pas NULL
+	{
+		total_len = total_len + ft_strlen(strs[i]);
+		i++;
 	}
-	s1[i] = '\0';
-	return(s1);
+	total_len = total_len + ft_strlen(sep) * (size - 1);
+	return (total_len);
 }
 
 char	*ft_strjoin(int size, char **strs, char *sep)
 {
+	char	*out;
+	int	total_len;
 	int	i;
-	int	len;
-	char 	*str;
 
-	i = 0;
-	len = 0;
-	while (strs[i] != NULL)
+	if (size == 0)
 	{
-		len = len + ft_strlen(strs[i]);
+		out = malloc(sizeof(char));
+		out[0] = '\0';
+		return (out);
+	}
+	total_len = get_total_len(size, strs, sep);
+	out = malloc(sizeof(char) * (total_len + 1));
+	if (out == NULL)
+		return(NULL);
+	i = 0;
+	while (i < size)
+	{
+		ft_strcat(out, strs[i]);
+		if (i < size - 1)
+			ft_strcat(out, sep);
 		i++;
 	}
-	str = malloc(sizeof(char) * (len + 1 + (ft_strlen(sep) * (size  - 1))));
-	if (str == NULL)
-		return (NULL);
-	i = 0;
-	while (strs[i] != NULL)
-	{
-		str = ft_strcat(str, strs[i]);
-		if (strs[i + 1] != NULL && strs[i][0] != '\0')
-			str = ft_strcat(str, sep);
-		i++;
-	}
-	str[ft_strlen(str)] = '\0';
-	return(str);
+	return (out);
 }
+#include <stdio.h>
 
 int	main(void)
 {
-	char	*tab[4];
+	char 	*strs[2] = {"", NULL}; // Ne pas oulier d'ajouter NULL a la fin 
+	char	*sep = "_";
+	char	*out;
 
-	tab[0] = "";
-	tab[1] = "zerrzer";
-	tab[2] = "";
-	tab[3] = NULL;
-	char *s = ft_strjoin(3, tab, "/");
-	printf("%s\n", s);
+	out = ft_strjoin(2, strs, sep);
+	printf("%s\n", out);
+	free(out);
 	return (0);
 }
-

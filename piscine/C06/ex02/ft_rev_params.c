@@ -1,6 +1,6 @@
 #include <unistd.h>
 
-void	ft_putstr(char *str)
+void	ft_putchar(char *str)
 {
 	int	i;
 
@@ -8,7 +8,6 @@ void	ft_putstr(char *str)
 	while (str[i] != '\0')
 		i++;
 	write(1, str, i);
-	write(1, "\n", 1);
 }
 
 int	main(int argc, char **argv)
@@ -16,9 +15,10 @@ int	main(int argc, char **argv)
 	int	i;
 
 	i = argc - 1;
-	while (i >= 0)
+	while (i > 0)
 	{
-		ft_putstr(argv[i]);
+		ft_putchar(argv[i]);
+		write(1, "\n", 1);
 		i--;
 	}
 	return (0);

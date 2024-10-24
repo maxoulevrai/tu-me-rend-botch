@@ -1,20 +1,13 @@
 #include <unistd.h>
 
-void	ft_putstr(char *str)
+int	main(int argc, char **argv)
 {
+	(void)argc;
 	int	i;
 
 	i = 0;
-	while (str[i] != '\0')
-	{
-		write(1, &str[i], 1);
+	while (argv[0][i] != '\0')
 		i++;
-	}
-}
-
-int	main(int argc, char **argv)
-{
-	if (argc > 0)
-		ft_putstr(argv[0]);
+	write(1, argv[0], i);
 	return (0);
 }

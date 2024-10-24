@@ -8,7 +8,7 @@ void	ft_ft(int *nbr)
 int	main(void)
 {
 	int	y;
-	int	*i = &y;
+	int	*i = y;
 
 	y = 0;
 	ft_ft(i);
