@@ -16,8 +16,8 @@ int	ft_strcmp(char *s1, char *s2)
 
 int	main(void)
 {
-	char	st1[] = "idff323556ggC";
-	char	st2[] = "AB";
+	char	st1[] = "abcde";
+	char	st2[] = "abcd";
 
 	printf("comp: %d\n", ft_strcmp(st1, st2));
 	return (0);

@@ -1,14 +1,11 @@
-#include <unistd.h>
+#include <stdio.h>
+#include <string.h>
 
 int	main(void)
 {
-	char	str[20] = "hello";
-	int	i = 0;
+	int	i;
 
-	while (str[i] != '\0')
-	{
-		write(1, &str[i], 1);
-		i++;
-	}
+	i = strcmp("abc", "cab");
+	printf("%d\n", i);
 	return (0);
 }
