@@ -10,6 +10,7 @@ int     ft_strlen(char *str)
         i++;
     return (i);
 }
+
 char    *ft_strdup(char *src)
 {
     int     i;
@@ -28,30 +29,23 @@ char    *ft_strdup(char *src)
     }
     return (dest);
 }
-struct s_stock_str *ft_strs_to_tab(int ac, char **av)
+
+struct s_stock_str  *ft_strs_to_tab(int ac, char **av)
 {
     int     i;
-    t_stock_str stock[100];
+    t_stock_str *stock;
 
+    stock = malloc(sizeof(t_stock_str) * (ac));
     i = 1;
     while (i < ac)
     {
-        stock[i].size = ft_strlen(av[i]);
-        stock[i].str = ft_strdup(av[i]);
-        stock[i].copy = ft_strdup(av[i]);
+        stock[i - 1].size = ft_strlen(av[i]);
+        stock[i - 1].str = ft_strdup(av[i]);
+        stock[i - 1].copy = ft_strdup(av[i]);
         i++;
     }
-        stock[i].size = 0;
-        stock[i].str = 0;
-        stock[i].copy = 0;
+    stock[i - 1].size = 0;
+    stock[i - 1].str = 0;
+    stock[i - 1].copy = 0;
     return (stock);
-}
-
-int     main(int ac, char **av)
-{
-
-    
-    if (ac < 1)
-        pav = ft_strs_to_tab(ac, av);
-    return (0);
 }

@@ -1,6 +1,11 @@
 #include "ft_stock_str.h"
 #include <unistd.h>
 
+void    ft_putchar(char c)
+{
+    write(1, &c, 1);
+}
+
 void    ft_putstr(char *str)
 {
     int     i;
@@ -12,6 +17,17 @@ void    ft_putstr(char *str)
     write(1, "\n", 1);
 }
 
+void    mininbr(int nbr)
+{
+    if (nbr > 9)
+    {
+        mininbr(nbr / 10);
+        mininbr(nbr % 10);
+    }
+    else
+        ft_putchar(nbr + '0');
+        write(1, "\n", 1);
+}
 void    ft_show_tab(struct s_stock_str *par)
 {
     int     i;
@@ -20,16 +36,8 @@ void    ft_show_tab(struct s_stock_str *par)
     while (par[i].str != 0 && par[i].copy != 0 && par[i].size != 0)
     {
         ft_putstr(par[i].str);
-        write(1, par[i].size"\n", 2);
+        mininbr(par[i].size);
         ft_putstr(par[i].copy);
         i++;
     }
-}
-
-int     main(int ac, char **av)
-{
-    t_stock_str     *pav[100];
-
-    pav = ft_strs_to_tab()
-    ft_show_tab(pav)
 }
