@@ -1,6 +1,6 @@
 {
     "files.associations": {
-		"ft_memset.C": "cpp",
+		"ft_memset.c": "c",
 		"libft.h": "c"
 	}
 }
