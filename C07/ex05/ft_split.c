@@ -48,7 +48,7 @@ int	tab_len(char *str, char *charset)
 	return (count);
 }
 
-char	*ft_strlcpy(char *src, int len)
+char	*ft_strdup(char *src, int len)
 {
 	char	*dest;
 	int		i;
@@ -85,7 +85,7 @@ char	**ft_split(char *str, char *charset)
 			i++;
 		if (str[i] != '\0')
 		{
-			strs[j] = ft_strlcpy(&str[i], word_len(&str[i], charset));
+			strs[j] = ft_strdup(&str[i], word_len(&str[i], charset));
 			j++;
 			i = i + word_len(&str[i], charset);
 		}
